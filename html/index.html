@@ -11,38 +11,43 @@
 		<header>
 			<img src="../images/garconsymboles.png" alt="Un petit garçon qui réfléchi sur les symboles de mathématique">
 			<h1>Calcul mental pour enfants</h1>
-			<p>Bienvenue sur mon site internet pour faire du calcul mental. Nous allons nous entrainer ensemble en répondant à de simple calcul.</p>
+			<p>Bienvenu sur mon site internet pour faire du calcul mental. Nous allons nous entraîner ensemble en répondant à de simples calculs.</p>
 		</header>
+
+        <div id="container">
+            <button id="start">Commencer</button>
+            <button id="stop">Stop</button>
+        </div>
 
 		<main>
 			<div>
-				<button>Commencer</button>
-				<div id="questionNumber">Question n°1 :</div>
+				<h2 id="questionNumber">Question n°1 :</h2>
 				<div id="firstNumber">5</div>
 				<div>+</div>
 				<div id="secondNumber">8</div>
 				<div>=</div>
 				<input id ="userResult" type="text" name="" placeholder="Saisir votre résultat">
+                <button id="validation">Valider</button>
 				<div id="solution">13</div>
 			</div>
 			<div id="arrayScore">
 				<table>
 					<thead>
 						<tr>
-							<td>Numéro de Partie</td>
+                            <td>Numéro de Partie</td>
 							<td>Question</td>
 							<td>Ton résultat</td>
 							<td>La bonne réponse</td>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="">
+						<tr class="good">
 							<td>1</td>
 							<td>5+8</td>
 							<td>13</td>
 							<td>13</td>
 						</tr>
-						<tr class="">
+						<tr class="bad">
 							<td>2</td>
 							<td>10+2</td>
 							<td>11</td>
@@ -56,4 +61,4 @@
 		<footer>Site crée par Cédric Pourrias - <a href="mailto:pourriascedric@gmail.com">Me contacter</a></footer>
 	</body>
 </html>
-<!--Dans le tableau, si la partie est gagné, alors la ligne est verte, si faux alors ligne est rouge --> 
+<!--Dans le tableau, si la partie est gagné, alors la ligne est verte (class good), si faux alors ligne est rouge (class bad) -->
