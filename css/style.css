@@ -67,6 +67,11 @@ main {
   width: 90%;
   box-shadow: 2px 2px 10px 5px #C4D7ED;
   border-radius: 10%;
+  padding-bottom: 2%;
+}
+
+#containerProcess {
+  position: relative;
 }
 
 main h2 {
@@ -74,4 +79,101 @@ main h2 {
   text-decoration: underline;
   margin-left: 50px;
   font-weight: bold;
+}
+
+main .process {
+  display: inline-block;
+  font-size: 3em;
+  width: 10%;
+  border: 1px solid #CCC;
+  text-align: center;
+}
+
+#userResult {
+  display: inline-block;
+  font-size: 3em;
+  width: 15%;
+  border: 1px solid #CCC;
+  text-align: center;
+}
+
+#containerProcess .reponse {
+  position: absolute;
+  width: 10%;
+  font-size: 3.5em;
+  right: 30%;
+  transform: rotate(-30deg);
+  top: 30%;
+  opacity: 0.5;
+}
+
+#true {
+  color: #96CA2D;
+  visibility: hidden;
+}
+
+#false {
+  color: #C10100;
+  visibility: hidden;
+}
+
+#solution {
+  margin-top: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+#containerProcess button {
+  font-size: 1.5em;
+  width: 150px;
+  height: 40px;
+  right: 4%;
+}
+
+#validation {
+  background-color: #B5E655;
+  border: 2px solid #96CA2D;
+  display: inline-block;
+}
+
+#next {
+  display: none;
+}
+
+/**************************/
+/*      TABLEAU SCORE     */
+/**************************/
+
+#arrayScore {
+  margin: 30px auto;
+  border: 5px solid #CCC;
+  width: 100%;
+  box-shadow: 2px 2px 10px 5px #C4D7ED;
+  border-radius: 10%;
+}
+
+table{
+  border-collapse: collapse;
+  width: 80%;
+  margin: 10px auto;
+  border: 2px solid #000;
+}
+
+thead {
+  background-color: #046380;
+  color: #FFF;
+  font-weight: bold;
+}
+
+td {
+  width: 5%;
+  border: 1px solid #CCC;
+}
+
+table .good {
+  background-color: #B5E655;
+}
+
+table .bad {
+  background-color: #FF483D;
 }
