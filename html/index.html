@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Essai</title>
+		<title>Calcul Mental</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 	</head>
@@ -22,11 +22,11 @@
 		<main>
 			<div id="containerProcess">
 				<h2 id="questionNumber">Question n°1 :</h2>
-				<div id="firstNumber" class="process">99</div>
+				<div id="firstNumber" class="process"></div>
 				<div class="process">+</div>
-				<div id="secondNumber" class="process">99</div>
+				<div id="secondNumber" class="process"></div>
 				<div class="process">=</div>
-				<input id ="userResult" type="text" name="">
+				<input id ="userResult" type="text" name="" onkeyup="app.verif(this);">
                 <div id="false" class="reponse">Faux</div>
                 <div id="true" class="reponse">Vrai</div>
                 <button id="validation">Valider</button>
@@ -64,6 +64,8 @@
 
 
 		<footer>Site crée par Cédric Pourrias - <a href="mailto:pourriascedric@gmail.com">Me contacter</a></footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../js/script.js"></script>
 	</body>
 </html>
 <!--Dans le tableau, si la partie est gagné, alors la ligne est verte (class good), si faux alors ligne est rouge (class bad) -->
