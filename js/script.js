@@ -3,15 +3,13 @@ var app = {
   seconds : 20,
   //Variable qui va enregistrer les données de chaque parties
   games : [],
-
+  diffilcuty : [10, 20, 30, 50],
   init : function() {
     // Test pour l'appel d'Init
     // console.log('Appel de INIT');
 
     // Action lorsque l'on clique sur "COMMENCER"
     $('#start').on('click', app.game);
-
-    // $('#stop').on('click', app.stopTimer);
   },
   verif : function(chars) {
     //Caractères autorisés
@@ -36,55 +34,93 @@ var app = {
   },
   game : function () {
     //Appel pour la création des nombres aléatoires
-    app.random(0,10);
+    //Les parametres doivent etre de 0 et le choix de la diffilcuté avec l'array app.diffilcuty
+    app.random(0,app.diffilcuty[0]);
     //Mise en place dans le html des nombre aléatoire
     $('#firstNumber').text(app.random1);
     $('#secondNumber').text(app.random2);
     //Cacher le bouton COMMENCER et afficher le STOP
     $('#start').css('display', 'none');
     $('#stop').css('display', 'inline-block');
+    //Initialisation du timer
+    app.seconds = 20;
     //Lancer le Timer
     app.updateTimer();
     //Action sur le bouton STOP
     $('#validation').on('click', app.verifResult);
   },
   verifResult : function () {
-    var userResult = $('#userResult').val();
-    if (Number(userResult) === app.result) {
-      console.log('Good');
-    } else {
-      console.log('Bad');
-    }
     //On arrete le Timer
     app.stopTimer();
+    var userResult = $('#userResult').val();
+    if (Number(userResult) === app.result) {
+      app.trueReponse();
+    } else {
+      app.falseReponse();
+    }
+    app.switchValideNext();
+    //ICI on devra récuperer les données de la partie pour push sur le tableau!!!!
+  },
+  switchValideNext : function () {
+    //cache le btn Valaider et affiche btn suivant et action sur next
+    $('#validation').css('display', 'none');
+    $('#next').css('display', 'inline-block');
+    $('#next').on('click', app.next);
   },
   updateTimer : function() {
     //Toute les secondes, on décrémente le timer et si on arrive à 0, on stop!
-    // On décrémente le Timer
-    app.seconds--;
     //On affiche le timer
+    $('#cpt').css('visibility', 'visible');
     $('#cpt').text(app.seconds + ' s');
     //Est ce qu'on a fini?
     if(app.seconds <= 0) {
-      $('#solution').css('visibility', 'visible');
-      $('#solution').text('Délai dépassé! La bonne réponse était : ' + app.random1 + ' + ' + app.random2 + ' = ' + app.result);
-      console.log('On arrete');
       app.falseReponse();
-      // La c'est un exemple faut reprendre dans l'algo du logiciel!
+      app.switchValideNext();
     } else {
       app.myTimer = setTimeout(app.updateTimer, 1000);
     }
+    // On décrémente le Timer
+    app.seconds--;
   },
   stopTimer : function() {
     //Test pour savoir si mon clique fonctionne histoire d'enlever un doute
-    // console.log('Je viens de cliquer sur le bouton STOP');
+    console.log('arret timer');
     //Arreter le Timer
     clearTimeout(app.myTimer);
+    //Cacher le timer
+    $('#cpt').css('visibility', 'hidden');
   },
   falseReponse : function() {
     //Etape de la fause réreponse
+    //Affiche le tampon faux
     $('#false').css('visibility', 'visible');
+    //Affiche la solution
+    $('#solution').css('visibility', 'visible');
+    $('#solution').text('La bonne réponse était : ' + app.random1 + ' + ' + app.random2 + ' = ' + app.result);
   },
+  trueReponse : function () {
+    //Etape de la bonne réponse
+    //Affiche le tampon bonne
+    $('#true').css('visibility', 'visible');
+    //affiche la solution
+    $('#solution').css('visibility', 'visible');
+    $('#solution').text('Félicitation!!! Tu as trouvé la bonne réponse!');
+  },
+  next: function () {
+    //Lorque l'on clique sur ce bouton, on doit tout cacher et réafficher le bouton Valider
+    $('#false').css('visibility', 'hidden');
+    $('#true').css('visibility', 'hidden');
+    $('#solution').css('visibility', 'hidden');
+    //ne pas oublier d'effacer le champs texte afin d'etre libre
+    $('#userResult').val('');
+    //Réafficher le bouton valider et cacher next
+    $('#next').css('display', 'none');
+    $('#validation').css('display', 'inline-block');
+    app.game();
+
+
+  },
+
 };
 
 $(app.init);
