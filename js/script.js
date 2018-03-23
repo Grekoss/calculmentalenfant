@@ -1,5 +1,5 @@
 var app = {
-  nbgames : 0,
+  nbgames : 1,
   init : function () {
     //On clique sur "Commencer"
     $('#start').on('click', app.start);
@@ -37,8 +37,9 @@ var app = {
     app.nbgames ++;
     $('#questionNumber').text('Question n° ' + app.nbgames);
     //Initialisation du temps : 20
-    app.seconds = 3;
-    app.updateTimer();
+    // app.seconds = 3; //Actuellement a 3 pour les tests
+    // app.updateTimer();
+    app.falseAnswer(); //TMP A EFFACER - Test -> Mon probleme be vient pas de Timer !!! C'est pour esquiver le Timer
   },
   updateTimer : function () {
     //Toute les secondes, on décrémente le timer et si on arrive à 0, on stop!
@@ -80,8 +81,10 @@ var app = {
     //Masque les tanpons, message et bouton "Next"
     $('#true, #false, #solution').css('visibility', 'hidden');
     $('#next').css('display', 'none');
-    //Relance le jeu
+    // Relance le jeu
     app.start();
+    app.nbgames ++;
+
   },
 };
 
