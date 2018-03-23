@@ -1,7 +1,27 @@
-Mes penses bêtes :
+**COMMENCER**
+Masquer le bouton "Commencer"
+Affiche le bouton "Valider"
+Génération des Randoms
+Affiche les Randoms dans les DIV
+Initialisation du "Timer"
+Lancement du "Timer"
+**si**
+	*DECOMPTE DU TIMER*
+		**Timer = 0**
+			*A* Affiche le Tampon "Faux"
+					Affiche le message de "Réponse"
 
-Quand tu cliques sur commencer, celui-ci disparer et est remplacé par le boutton supprimer.
-
-Penser a mettre un timer pour insiter l'enfant a aller vite. (30 secondes me parait correct, a essayer sur Lucas)
-
-Mettre plutot le tableau dans une DIV mais pas dans le main, histoire d'afficher celle ci lors du dexieme calcul.
+		**Timer > 0**
+			**VALIDER**
+				**si**
+					*Résultat de l'utilisateur + Arrêt du Timer*
+						**User != Resultat**
+							Va au point *A*
+						**User = Résultat**
+							Affiche le Tampon "Vrai"
+							Affiche le bouton "Next"
+							**NEXT**
+							Push le résultat dans le Tableau
+							Masque les tampons
+							Masque le message
+							Masque le bouton "Next"
