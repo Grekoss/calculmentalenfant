@@ -135,8 +135,8 @@ main .process {
 #validation {
   background-color: #B5E655;
   border: 2px solid #96CA2D;
-  /*display: inline-block;*/
-  display: none;
+  display: inline-block;
+  visibility: hidden;
 }
 
 #next {
