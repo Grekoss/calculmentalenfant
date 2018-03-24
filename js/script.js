@@ -1,4 +1,5 @@
 var app = {
+	seconds : 10,
 	numberGame : 0,
 	init : function () {
 		var start = document.getElementById('start');
@@ -21,6 +22,8 @@ var app = {
 		return random;
 	},
 	startTheGeme : function () {
+		//Par sécurtié, on Stop le Timer pour etre sur qu'il soit bien remis à zero!
+		app.stopTimer();
 		//Effacer les elements
 		app.reset();
 		//Modifier le numéro de la partie et afficher le numéro de la question
@@ -41,10 +44,15 @@ var app = {
 		//Afficher le bouton "Valider"
 		app.valid = document.getElementById('validation');
 		app.valid.style.visibility = 'visible';
+		//Ajout d'une seconde pour avoir le temps d'afficher l'origine du Timer et active le Timer
+		app.seconds++; 
+		app.updateTimer();
 		//Ecoute Clique pour vérifier le résultat du joueur.
 		app.valid.addEventListener('click', app.verifResult);
 		},
 	verifResult : function () {
+		//Arret du Timer
+		app.stopTimer();
 		//Recuperation du résultat du joueur + convertion en Number
 		app.userResult = Number(document.getElementById('userResult').value);
 		if (app.userResult === app.randomResult) {
@@ -57,6 +65,7 @@ var app = {
 		app.message.style.visibility = 'visible';
 		app.valid.style.visibility = 'hidden';
 		tampon.style.visibility = 'visible';
+
 		app.addTable();	
 	},
 
@@ -69,6 +78,8 @@ var app = {
 		document.getElementById('true').style.visibility = 'hidden';
 		document.getElementById('false').style.visibility = 'hidden';
 		document.getElementById('userResult').value="";
+		//Initialisation du Timer
+		app.seconds = 10;
 	},
 	createTd : function ( content ) {
 		//Creation de la balaise <td> avec son contenu
@@ -99,9 +110,23 @@ var app = {
 		if ( app.userResult === app.randomResult ) {
 			tr.className = "good"
 		} else { tr.className = "bad" };
-
-
-
+	},
+	updateTimer : function () {
+		//Declaration du Timer
+		//Décompte (--)
+		app.seconds--;
+		//On affiche le Timer
+		app.timer = document.getElementById('timer').textContent = app.seconds + ' s.';
+		//Test pour savoir si le décompte tombe a Zero!
+		if (app.seconds <= 0 ) {
+			app.verifResult();
+		} else {
+			app.monTimer = setTimeout(app.updateTimer, 1000);
+		}
+	},
+	stopTimer : function () {
+		//Arret le timer
+		clearTimeout( app.monTimer );
 	},
 }
 

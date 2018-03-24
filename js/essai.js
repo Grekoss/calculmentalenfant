@@ -1,22 +1,36 @@
 var app = {
-	clique : false,
-	init : function () {
-		console.log('Teste de sécurité de lien');
-		app.test();
-	},
-	test : function () {
+  seconds: 10,
+  init: function() {
 
-		do {
-			console.log('On est dans le while')
-			$('#test').on('click', app.addclique);
-		}
-		while (app.clique === false) 
-		console.log('C\'est fini');
-	},
-	addclique : function () {
-		app.clique = true;
-		console.log('Je viens de cliquer sur le bouton');
-	},
-}
+    console.log('Init');
 
-$(app.init);
+    // on crée l'évènement
+    document.getElementById('test').addEventListener('click', app.updateTimer);
+
+
+  },
+
+  // Toutes les secondes, on décrémente le timer
+  // et on si on arrive à 0, on s'arrête
+  updateTimer: function() {
+
+    // On décrémente le timer
+    app.seconds--;
+
+    // On affiche le timer
+    document.getElementById('timer').textContent = app.seconds + ' s.';
+
+    // Est ce qu'on a fini ?
+    if (app.seconds <= 0) {
+
+      console.log('On arrête tout');
+      // On masque le formulaire
+    }
+    else {
+
+      setTimeout(app.updateTimer, 1000);
+    }
+  }
+};
+
+document.addEventListener('DOMContentLoaded', app.init);
