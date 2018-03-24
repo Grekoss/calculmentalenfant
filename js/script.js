@@ -1,7 +1,9 @@
 var app = {
-	nbGame : 0, //Nombre de partie
+	games : [],
+	nbGame : 0,
+	reset : false,
 	init : function () {
-		$('#start').on('click', app.start);
+		$('#start').on('click', app.startGame);
 	},
 	verif : function (chars) {
 		//Caractères autorisés
@@ -14,80 +16,47 @@ var app = {
 			}
 		}
 	},
-	start : function () {
-		//Maque le bouton "COMMENCER" et affiche le bouton "STOP"
-		$('#start').css('display', 'none');
-		$('#stop').css('display', 'inline-block')
-		//Action de bouton "STOP" -> ici, c'est test pour mes essais
-		$('#stop').on('click', app.test);
-		app.game();	
-
-		
-	},
-
 	random : function(min, max) {
-		//Création des variables Randoms
-		app.random1 = Math.floor(Math.random() * ( max - min + 1 ));
-		app.random2 = Math.floor(Math.random() * ( max - min + 1 ));
-		console.log(app.random1);
-		console.log(app.random2);
-		//Calul de l'opération
-		app.randomResult = app.random1 + app.random2;
-		console.log(app.randomResult);
+		//Création du random
+		var random = Math.floor(Math.random() * ( max - min + 1 ));
+		return random;
 	},
-
-	game : function () {
-		//Lancement d'une partie
-		//Ajoute une partie en l'incrémentant et l'affiche
-		app.nbGame ++;
-		$('#questionNumber').text('Question n°' + app.nbGame);
-		//Génération des Randoms et les afficher
-		app.random(0, 10);
+	partie : function () {
+		//Afficher le bouton "Valider"
+		$('#validation').css('display', 'inline-block');
+		//Affect les random et les intégrer a l'HTML
+		app.random1 = app.random(0, 10);
+		app.random2 = app.random(0, 10);
+		app.randomResult = app.random1 + app.random2;
 		$('#firstNumber').text(app.random1);
 		$('#secondNumber').text(app.random2);
-		//Afficher le bouton "VALIDER"
-		$('#validation').css('display', 'inline-block');
-		//Action sur le bouton "VALIDER"
-		$('#validation').on('click', app.verifResult);
-	},
-
-	verifResult : function () {
-		//Comparaison du résultat User vs Random
-		//Creation de la variable récupérant le valeur de l'utilisateur en convertissant en Nombre
 		app.userResult = Number($('#userResult').val());
-		if (app.userResult === app.randomResult) {
-			app.trueAnswer();
-		}
-		else {
-			app.falseAnswer();
-		}
-		//Ajouter une ligne au tableau
-		app.addTable();
-		//Cacher et afficher les bouton "VALIDER" et "NEXT"
-		$('#validation').css('display', 'none');
-		$('#next').css('display', 'inline-block');
-		$('#next').on('click', app.reset);
+		app.nbGame++;
+		//Affiche le numéro de la question
+		$('#questionNumber').text('Question n°' + app.nbGame);
+		//Lorque que l'on clique sur le bouton "valider", cela lance une fonction qui controle le résultat.
+		$('#validation').on('click', app.verifResult);
+		var result = {
+			//Numéro de la Game
+			numeroGame : app.nbGame,
+			// Gagné ou Perdu?
+			win : app.userResult === app.randomResult,
+			// Le nombre a trouver
+			random : app.randomResult,
+			//Addition
+			sum : app.random1 + ' + ' + app.random2,
+			// Résultat de l'user
+			user : app.userResult
+		};
+		app.reset = true;
+		return result;
 	},
-
-	trueAnswer : function () {
-		//Afficher le tampon et le message
-		$('#solution').text('VRAI! C\'est la bonne réponse. Continue comme ça!');
-		$('#true, #solution').css('visibility', 'visible');
-	},
-
-	falseAnswer : function () {
-		//Afficher le tampon et le message
-		$('#solution').text('FAUX! La réponse était : ' + app.randomResult + ' !');
-		$('#false, #solution').css('visibility', 'visible');
-	},
-
 	createTd : function ( content ) {
-		//Création des Elements TD
+		//Creation de la balaise <td> avec son contenu
 		var td = document.createElement('td');
 		td.textContent = content;
 		return td;
 	},
-
 	addTable : function () {
 		//Rappel de la forme du tableau :
 		// # partie  ||  question  || Your Result  || Good Result
@@ -112,20 +81,53 @@ var app = {
 			tr.className = "good"
 		} else { tr.className = "bad" };
 	},
+	startGame : function () {
+		
+		//Gestion de plusieur partie
+		do {
+			app.resetCss();
+			//On lance une partie et on récupère le résultat à la fin de la partie
+			var data = app.partie();
+			//Enregistrement des résultat dans le tableau
+			app.games.push ( data );
+		} while ( app.reset );
+	},
+	trueAnswer : function () {
+		//Afficher le tampon et le message pour la bonne réponse
+		$('#solution').text('VRAI! C\'est la bonne réponse. Continue comme ça!');
+		$('#true, #solution').css('visibility', 'visible');
+	},
 
-	reset : function () {
+	falseAnswer : function () {
+		//Afficher le tampon et le message pour la mauvaise réponse
+		$('#solution').text('FAUX! La réponse était : ' + app.randomResult + ' !');
+		$('#false, #solution').css('visibility', 'visible');
+	},
+	verifResult : function () {
+		//Comparaison du résultat User vs Random
+		//Creation de la variable récupérant le valeur de l'utilisateur en convertissant en Nombre
+		app.userResult = Number($('#userResult').val());
+		if (app.userResult === app.randomResult) {
+			app.trueAnswer();
+		}
+		else {
+			app.falseAnswer();
+		}
+		//Ajouter une ligne au tableau
+		app.addTable();
+		//Cacher et afficher les bouton "VALIDER" et "NEXT"
+	//	$('#validation').css('display', 'none');
+//		$('#next').css('display', 'inline-block');
+//		$('#next').on('click', app.reset);
+	},
+	resetCss : function () {
 		//Masquer les Tampons, le message et le bouton "NEXT"
 		$('#false, #true, #solution').css('visibility', 'hidden');
-		$('#next').css('display', 'none');
+	//	$('#next').css('display', 'none');
 		//Effacer le contenu du champs text
 		$('#userResult').val('');
-		app.game();
 	},
-
-	test : function () {
-
-	},
-
 };
 
 $(app.init);
+
