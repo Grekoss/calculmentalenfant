@@ -138,7 +138,6 @@ var app = {
 		//Appel du bouton masquer
 		var btnMasquer = document.getElementById('masquer');
 		btnMasquer.addEventListener('click', app.hiddenOption);
-		
 
 //
 //    TEST.html, j'ai un bel exemple a aller voir, mais il est tard ! ; )
@@ -152,6 +151,7 @@ var app = {
 }
 
 document.addEventListener('DOMContentLoaded', app.init);
+
 
 
 

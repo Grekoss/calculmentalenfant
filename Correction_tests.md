@@ -1,0 +1,6 @@
+- Modifier le bouton "start" -> "Cliquer ici pour commencer", par contre, apres, on doit avoir le contentText -> Continuer!
+- Mofifier le tampon vert -> "Exact"
+- Changer de place les tampons, plus à droite.
+- Option Reset! pasa bon!!!!
+- Option random a modifier mettre de 0 à x!
+-choix des secondes mettre plutot "durée"
