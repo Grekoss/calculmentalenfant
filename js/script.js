@@ -2,8 +2,12 @@ var app = {
 	seconds : 10,
 	numberGame : 0,
 	init : function () {
-		var start = document.getElementById('start');
-		start.addEventListener('click', app.startTheGeme);
+		//Appel et gestion du bouton START
+		var btnStart = document.getElementById('start');
+		btnStart.addEventListener('click', app.startTheGeme);
+		//Appel et gestion du bouton OPTION
+		var btnOption = document.getElementById('option');
+		btnOption.addEventListener('click', app.option);
 	},
 	verif : function ( chars ) {
 		//Caractères autorisés
@@ -65,7 +69,6 @@ var app = {
 		app.message.style.visibility = 'visible';
 		app.valid.style.visibility = 'hidden';
 		tampon.style.visibility = 'visible';
-
 		app.addTable();	
 	},
 

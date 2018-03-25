@@ -34,27 +34,19 @@ header p {
 }
 
 /**************************/
-/*    ZONE DES BUTTONS    */
+/*     ZONE DU BUTTONS    */
 /**************************/
-#container button {
-  font-weight: bold;
-  font-size: 1.5em;
-  width: 300px;
-  margin: 15px;
-  border-radius: 25px;
-  color: #002F2F;
-}
 
 #start {
   background-color: #B5E655;
   border: 2px solid #96CA2D;
   display: inline-block;
-}
-
-#stop {
-  background-color: #E00000;
-  border: 2px solid #C10100;
-  display: none;
+  width: 300px;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 15px;
+  border-radius: 25px;
+  color: #002F2F;
 }
 
 /**************************/
@@ -182,4 +174,73 @@ table .good {
 
 table .bad {
   background-color: #FF483D;
+}
+
+/**************************/
+/*      ZONE D'OPTION     */
+/**************************/
+
+#option {
+  width: 1.5em;
+  background-color: #E00000;
+  border: 2px solid #C10100;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 0.9em;
+  left: 0px;
+  border-radius: 0 10px 10px 0;
+  color: #002F2F;
+  position: fixed;
+  top: 50%;
+  word-break: break-word;
+  padding: 4px;
+  margin-top: -50px;
+  text-transform: uppercase;
+}
+
+#menuOption {
+  background-color: #C79F4B;
+  width: 50%;
+  padding: 1% 5%;
+  border-radius: 50px;
+  top: 50%;
+  margin-top: -159px;
+  position: fixed;
+  left: 50%;
+  margin-left: -460px;
+  border: 5px solid #570906;
+  display: none;
+}
+
+form fieldset {
+  font-size: 1.3em;
+  font-weight: bold;
+  width: 200px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 20px;
+}
+
+form img {
+  width: 200px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+form button {
+  color: #FFF;
+  background-color: #570906;
+  height: 44px;
+  width: 150px;
+  margin: 0 15px;
+  border: solid 2px #663E10;
+}
+
+#choiseOption {
+  margin: 0 0 15px;
+  font-weight: bold;
+}
+
+form legend {
+  margin-bottom: 5%;
 }

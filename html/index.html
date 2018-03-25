@@ -16,8 +16,8 @@
 
         <div id="container">
             <button id="start">Poser l'opération</button>
-            <button id="stop">Stop</button>
         </div>
+
 		<main>
 			<div id="containerProcess">
                 <div id="timer"></div>
@@ -51,7 +51,55 @@
 
 
 		<footer>Site crée par Cédric Pourrias - <a href="mailto:pourriascedric@gmail.com">Me contacter</a></footer>
-     <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+		<button id="option">Option</button>
+
+		<form id="menuOption">
+			<div id="optionDiv">
+				<fieldset id="optionSeconds">
+					<legend>Choix des Secondes : </legend>
+					<div>
+				   		<input type="radio" id="10s" name="secondes" value="10" checked>
+  						<label for="10s">10 Secondes</label>
+  					</div>
+  					<div>
+ 						<input type="radio" id="20s" name="secondes" value="20">
+   						<label for="20s">20 Secondes</label>
+   					</div>
+  					<div>
+			      		<input type="radio" id="30s" name="secondes" value="30">
+			      		<label for="30s">30 Secondes</label>
+			      	</div>
+  					<div>
+			      		<input type="radio" id="60s" name="secondes" value="60">
+			      		<label for="60s">60 Secondes</label>
+			      	</div>
+			   	</fieldset>
+			   	<img src="../images/rouages.png" alt="Mettre de l'huile dans les rouages">
+				<fieldset id="optionRandom">
+					<legend>Choix du chiffre Maximal : </legend>
+					<div>
+						<input type="radio" id="10r" name="random" value="10" checked>
+						<label for="10r">10 Maxi</label>
+					</div>
+					<div>
+						<input type="radio" id="50r" name="random" value="50">
+						<label for="50r">50 Maxi</label>
+					</div>
+					<div>
+						<input type="radio" id="100r" name="random" value="100">
+						<label for="100r">100 Maxi</label>
+					</div>
+				</fieldset>
+			</div>
+			<div>
+				<p id="choiseOption">votre choix est :</p>
+				<button type="submit">Valider</button>
+				<button id="masquer">Masquer les options</button>
+			</div>
+		</form>
+		
+
         <script src="../js/script.js"></script>
 	</body>
 </html>

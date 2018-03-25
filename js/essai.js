@@ -1,36 +1,15 @@
-var app = {
-  seconds: 10,
-  init: function() {
+var form = document.querySelector('form');
+var message = document.getElementById('resultat');
 
-    console.log('Init');
+form.addEventListener('submit', function(evt) {
+	var data = new FormData(form);
+	var output = "";
+	for (const entry of data) {
+		output = entry[1];
+	};
+	message.innerText = output;
+	evt.preventDefault();
+}, false);
 
-    // on crée l'évènement
-    document.getElementById('test').addEventListener('click', app.updateTimer);
 
 
-  },
-
-  // Toutes les secondes, on décrémente le timer
-  // et on si on arrive à 0, on s'arrête
-  updateTimer: function() {
-
-    // On décrémente le timer
-    app.seconds--;
-
-    // On affiche le timer
-    document.getElementById('timer').textContent = app.seconds + ' s.';
-
-    // Est ce qu'on a fini ?
-    if (app.seconds <= 0) {
-
-      console.log('On arrête tout');
-      // On masque le formulaire
-    }
-    else {
-
-      setTimeout(app.updateTimer, 1000);
-    }
-  }
-};
-
-document.addEventListener('DOMContentLoaded', app.init);

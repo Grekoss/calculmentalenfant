@@ -3,21 +3,26 @@
 	<head>
 		<meta charset="utf-8">
 		<title>TEST</title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		
 		<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 	</head>
 
 	<body>
-		<header>
-			<h1>ICI, je vais effectuer mes test</h1>
-		</header>
-			<br />
-			<br />		
-			<button id="test">Valider</button>
-			<div id="timer"></div>
+		<p>Veuillez choisir la meilleure méthode pour vous contacter :</p>
+  <div>
+    <input type="radio" id="contactChoice1" name="contact" value="10">
+    <label for="contactChoice1" onclick="met(this,'texte_10','texte_20');">10</label>
+    <input type="text" style="display:none" id="texte_10" value="Contenu de texte_10">
+    <br />
+    <input type="radio" id="contactChoice2" name="contact" value="20">
+    <label for="contactChoice2" onclick="met(this,'texte_20','texte_10');">20</label>
+    <input type="text" style="display:none" id="texte_20" value="Contenu de texte_20">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="../js/essai.js"></script>
+  </div>
+
+  <div id="messageRadio">dsf</div>
+
+  <script src="../js/essai.js"></script>
 	</body>
 </html>
-<!--Dans le tableau, si la partie est gagné, alors la ligne est verte (class good), si faux alors ligne est rouge (class bad) -->
+
