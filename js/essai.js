@@ -13,3 +13,6 @@ form.addEventListener('submit', function(evt) {
 
 
 
+$('#accept-modif-img').click(function(){
+		var simg = $('input:radio:checked').val();
+		$('#recup_img_gal').val(simg) ;

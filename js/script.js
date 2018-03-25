@@ -131,6 +131,46 @@ var app = {
 		//Arret le timer
 		clearTimeout( app.monTimer );
 	},
+	option : function () {
+		//Affiche le menu en changement le Display
+		app.menuOption = document.getElementById('menuOption')
+		app.menuOption.style.display='block';
+		//Appel du bouton masquer
+		var btnMasquer = document.getElementById('masquer');
+		btnMasquer.addEventListener('click', app.hiddenOption);
+		
+
+//
+//    TEST.html, j'ai un bel exemple a aller voir, mais il est tard ! ; )
+//
+
+
+	},
+	hiddenOption : function () {
+		app.menuOption.style.display='none';
+	}
 }
 
 document.addEventListener('DOMContentLoaded', app.init);
+
+
+
+
+
+
+
+
+var form = document.querySelector('form');
+var message = document.getElementById('resultat');
+
+form.addEventListener('submit', function(evt) {
+	var data = new FormData(form);
+	var output = "";
+	for (const entry of data) {
+		output = entry[1];
+	};
+	message.innerText = output;
+	evt.preventDefault();
+}, false);
+
+
