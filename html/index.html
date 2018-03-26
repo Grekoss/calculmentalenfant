@@ -15,7 +15,7 @@
 		</header>
 
         <div id="container">
-            <button id="start">Poser l'opération</button>
+            <button id="start">Cliquer ici pour commencer</button>
         </div>
 
 		<main>
@@ -28,7 +28,7 @@
 				<div class="process">=</div>
 				<input id ="userResult" type="text" name="" onkeyup="app.verif(this);">
                 <div id="false" class="reponse">Faux</div>
-                <div id="true" class="reponse">Vrai</div>
+                <div id="true" class="reponse">Exact</div>
                 <button id="validation">Valider</button>
 				<div id="solution"></div>
 			</div>
@@ -59,19 +59,19 @@
 				<fieldset id="optionSeconds">
 					<legend>Choix des Secondes : </legend>
 					<div>
-				   		<input type="radio" id="10s" name="secondes" value="10" checked>
+				   		<input type="radio" id="10s" name="seconds" value="10" checked>
   						<label for="10s">10 Secondes</label>
   					</div>
   					<div>
- 						<input type="radio" id="20s" name="secondes" value="20">
+ 						<input type="radio" id="20s" name="seconds" value="20">
    						<label for="20s">20 Secondes</label>
    					</div>
   					<div>
-			      		<input type="radio" id="30s" name="secondes" value="30">
+			      		<input type="radio" id="30s" name="seconds" value="30">
 			      		<label for="30s">30 Secondes</label>
 			      	</div>
   					<div>
-			      		<input type="radio" id="60s" name="secondes" value="60">
+			      		<input type="radio" id="60s" name="seconds" value="60">
 			      		<label for="60s">60 Secondes</label>
 			      	</div>
 			   	</fieldset>
@@ -92,13 +92,13 @@
 					</div>
 				</fieldset>
 			</div>
-			<div>
+			<div class="bouttonsOption">
 				<p id="choiseOption">votre choix est :</p>
-				<button type="submit">Valider</button>
-				<button id="masquer">Masquer les options</button>
+				<input type="button" onclick="app.modifRadio();" value="Valider">
+                <input type="button" id="masquer" value="Masquer les Options">
 			</div>
 		</form>
-		
+
 
         <script src="../js/script.js"></script>
 	</body>

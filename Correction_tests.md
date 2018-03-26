@@ -1,6 +1,8 @@
-- Modifier le bouton "start" -> "Cliquer ici pour commencer", par contre, apres, on doit avoir le contentText -> Continuer!
-- Mofifier le tampon vert -> "Exact"
-- Changer de place les tampons, plus à droite.
-- Option Reset! pasa bon!!!!
-- Option random a modifier mettre de 0 à x!
--choix des secondes mettre plutot "durée"
+- Option des secondes et random Max
+- Changer l'emplacement des Tampons (plus à droite)
+- Activer la touche entrer pour valider le résultat
+- Au click de "start", le champs du résultat doit etre activé pour faciliter la saisie.
+- Mettre un hover sur les bouton afin de savoir que c'est des bouttons
+- Refaire la mise en page du menu Option
+- Mettre icones FB, TWETTER, IN..... bref contact!!! (PUB pour ton taff!)
+- Mettre en PHP!!!!!
