@@ -1,6 +1,6 @@
 var app = {
   seconds : false,
-  max : 10,
+  max : false,
   numberGame : 0,
   init : function () {
     //Appel et gestion du bouton START
@@ -84,11 +84,19 @@ var app = {
     document.getElementById('false').style.visibility = 'hidden';
     document.getElementById('userResult').value='';
     //Initialisation du Timer
+    // si on a rien modifier dans les options on initialise les secondes par défault a 10 secondes
     if (app.seconds === false || app.optionSeconds === false) {
       app.seconds = 10;
       app.optionSeconds = 10;
     } else {
       app.seconds = app.optionSeconds;
+    }
+    //Initialisation du RandomResult comme le Timer ;)
+    if (app.max === false || app.optionRandom === false) {
+      app.max = 10;
+      app.optionRandom = 10;
+    } else {
+      app.max = app.optionRandom;
     }
   },
   createTd : function ( content ) {
@@ -159,18 +167,18 @@ var app = {
     }
     //Recherche du choix de l'utilisateur au sujet du Random :
     var radioRandom = document.getElementsByName('random');
-    var optionRandom;
+    app.optionRandom = false;
     for(var j=0; j < radioRandom.length; j++){
       if(radioRandom[j].checked){
-        optionRandom = radioRandom[j].value;
+        app.optionRandom = radioRandom[j].value;
       }
     }
     //Enregistrer les options pour la game :
     app.seconds = app.optionSeconds;
-    app.max = optionRandom;
+    app.max = app.optionRandom;
     //Appel du choiseOption et modification du texte !
     var choiseOption = document.getElementById('choiseOption');
-    choiseOption.textContent = 'Vous avez choisi de faire des opérations en ' + app.optionSeconds + ' secondes en prenant l\'option de tomber sur des nombres allant de 0 à ' + optionRandom +'.';
+    choiseOption.textContent = 'Vous avez choisi de faire des opérations en ' + app.optionSeconds + ' secondes en prenant l\'option de tomber sur des nombres allant de 0 à ' + app.optionRandom +'.';
 
 
   },
