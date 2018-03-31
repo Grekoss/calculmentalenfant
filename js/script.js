@@ -23,6 +23,18 @@ var app = {
       }
     }
   },
+  wallpaper: function () {
+    //Fond d'écran aléatoire
+    //Déclaration d'un tableau et nommant les fichiers
+    var tab = new Array();
+    tab[0] = '349588.jpg';
+    tab[1] = 'xpic374.jpg';
+    tab[2] = 'thumb-1920-735832.jpg';
+    //Random BG en fonction de la taille du tableau
+    var bg = Math.floor(Math.random()*tab.length);
+    //Modification du backgroundImage suite au random
+    document.body.style.backgroundImage = 'url(../images/fonds/'+tab[bg]+')';
+  },
   random : function( maximum ) {
     // Création du random
     var random = Math.floor((Math.random() * maximum) + 0 );
