@@ -4,8 +4,7 @@
 ## Problèmes à Résoudre :
 - [x] Changer l'emplacement des Tampons (plus à droite à la place du bouton valider)
 - [x] Activer la Toucher "ENTER" pour faciliter la saisie au clavier.
-- [] Mettre un Hover sur les bouttons
-- [x] Mise en CSS des Options
+- [x] Mettre un Hover sur les bouttons
 - [x] Mettre Icones Facebook, Twitter, In... Bref de vrai contacts
 
 ## Projet futur :

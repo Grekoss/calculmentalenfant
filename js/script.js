@@ -7,7 +7,7 @@ var app = {
     app.btnStart = document.getElementById('start');
     app.btnStart.addEventListener('click', app.startGame);
     //Appel et gestion du bouton OPTION
-    var btnOption = document.getElementById('option');
+    var btnOption = document.getElementById('option2');
     btnOption.addEventListener('click', app.showOption);
   },
   verif : function ( chars ) {
@@ -182,11 +182,6 @@ var app = {
     //Enregistrer les options pour la game :
     app.seconds = app.optionSeconds;
     app.max = app.optionRandom;
-    //Appel du choiseOption et modification du texte !
-    var choiseOption = document.getElementById('choiseOption');
-    choiseOption.textContent = 'Vous avez choisi de faire des opérations en ' + app.optionSeconds + ' secondes en prenant l\'option de tomber sur des nombres allant de 0 à ' + app.optionRandom +'.';
-
-
   },
   hiddenOption : function () {
     app.menuOption.style.display='none';

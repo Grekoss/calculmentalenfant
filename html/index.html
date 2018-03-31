@@ -13,6 +13,7 @@
 			<img src="../images/garconsymboles.png" alt="Un petit garçon qui réfléchi sur les symboles de mathématique">
 			<h1>Calcul mental pour enfants</h1>
 			<p>Bienvenu sur mon site internet pour faire du calcul mental. Nous allons nous entraîner ensemble en répondant à de simples calculs.</p>
+			<button id="option2" type="button" name="button" class="fas fa-cogs"> Options</button>
 		</header>
 
         <div id="container">
@@ -57,7 +58,6 @@
                 <a href="https://www.linkedin.com/in/c%C3%A9dric-pourrias-b79a5346/" class="fab fa-linkedin" target="_blank"></a> - <a href="https://www.facebook.com/cedric.pourrias" class="fab fa-facebook-square" target="_blank"></a> - <a href="https://twitter.com/ElGreKoss" class="fab fa-twitter-square" target="_blank"></a> - <a href="mailto:pourriascedric@gmail.com" class="fas fa-envelope-square"></a>
         </footer>
 
-		<button id="option">Option</button>
 
 		<form id="menuOption">
 			<div id="optionDiv">
@@ -98,9 +98,7 @@
 				</fieldset>
 			</div>
 			<div class="bouttonsOption">
-				<p id="choiseOption">votre choix est :</p>
-				<input type="button" onclick="app.modifRadio();" value="Valider">
-                <input type="button" id="masquer" value="Masquer les Options">
+				<input type="button" onclick="app.modifRadio();app.hiddenOption();" value="Valider">
 			</div>
 		</form>
 

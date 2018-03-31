@@ -33,6 +33,14 @@ header p {
 	margin: 0 auto;
 }
 
+#option2 {
+	position: absolute;
+	right: 5%;
+	bottom: 5%;
+	width: 5em;
+	height: 3em;
+}
+
 /**************************/
 /*     ZONE DU BUTTONS    */
 /**************************/
@@ -185,34 +193,15 @@ table .bad {
 /*      ZONE D'OPTION     */
 /**************************/
 
-#option {
-  cursor: pointer;
-  width: 1.5em;
-  background-color: #E00000;
-  border: 2px solid #C10100;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 0.9em;
-  left: 0px;
-  border-radius: 0 10px 10px 0;
-  color: #002F2F;
-  position: fixed;
-  top: 50%;
-  word-break: break-word;
-  padding: 4px;
-  margin-top: -50px;
-  text-transform: uppercase;
-}
-
 #menuOption {
   background-color: #C79F4B;
   /*width: 50%;*/
   padding: 1% 5%;
   border-radius: 50px;
-  /*top: 50%;*/
+  top: 50%;
   margin-top: -159px;
-  /*position: fixed;*/
-  /*left: 50%;*/
+  position: fixed;
+  left: 50%;
   margin-left: -460px;
   border: 5px solid #570906;
   display: none;
