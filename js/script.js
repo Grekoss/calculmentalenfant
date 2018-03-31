@@ -156,9 +156,6 @@ var app = {
     //Affiche le menu en changement le Display
     app.menuOption = document.getElementById('menuOption');
     app.menuOption.style.display='block';
-    //Appel du bouton masquer
-    var btnMasquer = document.getElementById('masquer');
-    btnMasquer.addEventListener('click', app.hiddenOption);
     app.modifRadio();
   },
   modifRadio : function () {
