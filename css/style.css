@@ -49,6 +49,10 @@ header p {
   color: #002F2F;
 }
 
+#start:hover {
+  cursor: pointer;
+}
+
 /**************************/
 /*      ZONE DU MAIN      */
 /**************************/
@@ -125,6 +129,7 @@ main .process {
 }
 
 #validation {
+  cursor: pointer;
   background-color: #B5E655;
   border: 2px solid #96CA2D;
   display: inline-block;
@@ -181,6 +186,7 @@ table .bad {
 /**************************/
 
 #option {
+  cursor: pointer;
   width: 1.5em;
   background-color: #E00000;
   border: 2px solid #C10100;

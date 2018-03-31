@@ -8,9 +8,11 @@ var app = {
     app.btnStart.addEventListener('click', app.startGame);
     //Appel et gestion du bouton OPTION
     var btnOption = document.getElementById('option');
-    btnOption.addEventListener('click', app.option);
+    btnOption.addEventListener('click', app.showOption);
   },
   verif : function ( chars ) {
+    //Verifie si on appuie sur "ENTER" si oui, valider
+    if (window.event.keyCode == 13 ) {app.verifResult();}
     //Caractères autorisés
     var regex = new RegExp('[0-9]', 'i');
     var valid;
@@ -21,9 +23,9 @@ var app = {
       }
     }
   },
-  random : function( max ) {
-    //Création du random
-    var random = Math.floor(Math.random() * ( max +1 ));
+  random : function( maximum ) {
+    // Création du random
+    var random = Math.floor((Math.random() * maximum) + 0 );
     return random;
   },
   startGame : function () {
@@ -37,12 +39,11 @@ var app = {
     app.numberGame++;
     var textQuestion = document.getElementById('questionNumber');
     textQuestion.textContent = 'Question n°'+app.numberGame;
-    //Attribution des randoms
     app.randomNumber1 = app.random(app.max);
     app.randomNumber2 = app.random(app.max);
     app.randomResult = app.randomNumber1 + app.randomNumber2;
     // Affichage dans la console pour des essais :
-    console.log(app.randomNumber1 + ' + ' + app.randomNumber2 + ' = ' + app.randomResult);
+    //console.log(app.randomNumber1 + ' + ' + app.randomNumber2 + ' = ' + app.randomResult);
     //Afficher les randoms dans chaque DIV
     var divNumber1 = document.getElementById('firstNumber');
     var divNumber2 = document.getElementById('secondNumber');
@@ -54,6 +55,8 @@ var app = {
     //Ajout d'une seconde pour avoir le temps d'afficher l'origine du Timer et active le Timer
     app.seconds++;
     app.updateTimer();
+    //Focus sur le bouton Valider
+    document.getElementById('userResult').focus();
     //Ecoute Clique pour vérifier le résultat du joueur.
     app.valid.addEventListener('click', app.verifResult);
   },
@@ -62,6 +65,8 @@ var app = {
     app.stopTimer();
     //Recuperation du résultat du joueur + convertion en Number
     app.userResult = Number(document.getElementById('userResult').value);
+    //Cache l'input text afin de ne plus pouvoir saisir des données.
+    document.getElementById('userResult').style.visibility = 'hidden';
     if (app.userResult === app.randomResult) {
       app.message.textContent = 'VRAI! C\'est la bonne réponse. Continue comme ça!';
       app.tampon = document.getElementById('true');
@@ -83,6 +88,7 @@ var app = {
     document.getElementById('true').style.visibility = 'hidden';
     document.getElementById('false').style.visibility = 'hidden';
     document.getElementById('userResult').value='';
+    document.getElementById('userResult').style.visibility = 'visible';
     //Initialisation du Timer
     // si on a rien modifier dans les options on initialise les secondes par défault a 10 secondes
     if (app.seconds === false || app.optionSeconds === false) {
@@ -146,7 +152,7 @@ var app = {
     //Arret le timer
     clearTimeout( app.monTimer );
   },
-  option : function () {
+  showOption : function () {
     //Affiche le menu en changement le Display
     app.menuOption = document.getElementById('menuOption');
     app.menuOption.style.display='block';

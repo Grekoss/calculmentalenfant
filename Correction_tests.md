@@ -1,8 +1,5 @@
-- Option des secondes et random Max
-- Changer l'emplacement des Tampons (plus à droite)
-- Activer la touche entrer pour valider le résultat
-- Au click de "start", le champs du résultat doit etre activé pour faciliter la saisie.
-- Mettre un hover sur les bouton afin de savoir que c'est des bouttons
-- Refaire la mise en page du menu Option
-- Mettre icones FB, TWETTER, IN..... bref contact!!! (PUB pour ton taff!)
-- Mettre en PHP!!!!!
+#Fichier Temporaire que je me sers pour effacer au fur et à mesure :
+
+- Mettre un Hover sur les bouttons
+- Mise en CSS des Options
+- Mettre Icones Facebook, Twitter, In... Bref de vrai contacts
