@@ -33,7 +33,7 @@ var app = {
     //Random BG en fonction de la taille du tableau
     var bg = Math.floor(Math.random()*tab.length);
     //Modification du backgroundImage suite au random
-    document.body.style.backgroundImage = 'url(../images/fonds/'+tab[bg]+')';
+    document.body.style.backgroundImage = 'url(images/fonds/'+tab[bg]+')';
   },
   random : function( maximum ) {
     // Création du random
